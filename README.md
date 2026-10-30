@@ -42,23 +42,74 @@
 <p>Measure the performance parameters: For each treatment performance incremented, for each movement performance decremented</p>
 program:
 ~~~
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medicine Prescribing Agent</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        h1 {
+            text-align: center;
+            color: blue;
+        }
+
+        pre {
+            background: #222;
+            color: lightgreen;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Medicine Prescribing Agent</h1>
+
+    <h2>Python Program</h2>
+
+    <pre>
 import random
+
 class MedicinePrescribingAgent:
+
     def __init__(self):
         self.rooms = {
             "Room 1": random.uniform(97.0, 102.5),
             "Room 2": random.uniform(97.0, 102.5)
         }
+
         self.performance = 0
-        self.current_room = random.choice(list(self.rooms.keys()))
+        self.current_room = random.choice(
+            list(self.rooms.keys())
+        )
+
     def sense(self):
-        """Sense current room and patient's temperature."""
         temperature = self.rooms[self.current_room]
+
         print(f"\nAgent is in {self.current_room}")
         print(f"Patient Temperature: {temperature:.1f}°F")
+
         return temperature
+
     def prescribe_medicine(self, temperature):
-        """Treat patient if temperature is above 98.5°F."""
         if temperature > 98.5:
             print("Patient has fever.")
             print("Medicine Prescribed.")
@@ -66,22 +117,41 @@ class MedicinePrescribingAgent:
         else:
             print("Patient is healthy.")
             print("No medicine required.")
+
     def move(self):
-        """Move to the other room."""
         previous_room = self.current_room
-        self.current_room = "Room 2" if self.current_room == "Room 1" else "Room 1"
+
+        self.current_room = (
+            "Room 2" if self.current_room == "Room 1"
+            else "Room 1"
+        )
+
         print(f"\nMoving from {previous_room} to {self.current_room}")
         self.performance -= 1
+
     def run(self):
         print("=== Medicine Prescribing Agent ===")
+
         temperature = self.sense()
         self.prescribe_medicine(temperature)
+
         self.move()
+
         temperature = self.sense()
         self.prescribe_medicine(temperature)
+
         print("\nFinal Performance:", self.performance)
+
+
 agent = MedicinePrescribingAgent()
 agent.run()
+    </pre>
+
+</div>
+
+</body>
+</html>
+
 ~~~
 
 
