@@ -143,7 +143,7 @@ class MedicinePrescribingAgent:
 
         print("\nFinal Performance:", self.performance)
 
-
+~~~
 agent = MedicinePrescribingAgent()
 agent.run()
     </pre>
@@ -152,10 +152,12 @@ agent.run()
 
 </body>
 </html>
+
 ~~~
-~~~
+
 
 
 output:
+
 <img width="461" height="591" alt="image" src="https://github.com/user-attachments/assets/c66be373-5089-4e30-bc9e-3164bc1d219b" />
 
